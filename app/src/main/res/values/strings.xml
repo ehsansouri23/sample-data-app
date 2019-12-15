@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Sample data app</string>
+    <string name="next_step">مرحله ی بعد</string>
+    <string name="first_name">نام</string>
+    <string name="last_name">نام خانوادگی</string>
+    <string name="phone_number">شماره همراه</string>
+    <string name="home_number">تلفن ثابت</string>
+    <string name="exact_address">آدرس  دقیق</string>
+    <string name="gender">جنسیت</string>
+    <string name="male">آقا</string>
+    <string name="female">خانم</string>
+    <string name="enter_your_data">لطفا اطلاعات خود را وارد کنید</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
