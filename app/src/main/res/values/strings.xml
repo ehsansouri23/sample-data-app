@@ -10,5 +10,6 @@
     <string name="male">آقا</string>
     <string name="female">خانم</string>
     <string name="enter_your_data">لطفا اطلاعات خود را وارد کنید</string>
+    <string name="error">خطایی رخ داده است</string>
     <string name="title_activity_maps">Map</string>
 </resources>
