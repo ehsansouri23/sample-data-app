@@ -13,10 +13,20 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
     private val _addresses = MutableLiveData<Result<List<Address>>>()
     val addresses: LiveData<Result<List<Address>>> = _addresses
 
+    private val _addAddress = MutableLiveData<Result<Address>>()
+    val addAddress: LiveData<Result<Address>> = _addAddress
+
     fun getAddresses() {
         _addresses.postValue(Result.Loading)
         viewModelScope.launch {
             _addresses.postValue(repository.getAddresses())
+        }
+    }
+
+    fun addAddress(address: Address) {
+        _addAddress.postValue(Result.Loading)
+        viewModelScope.launch {
+            _addAddress.postValue(repository.addAddress(address))
         }
     }
 }
