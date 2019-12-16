@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private var lat: Float = 0F
     private var long: Float = 0F
+    private var gender = "male"
     private val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(this, MainViewModelFactory(Repository(ApiFactory.api)))
             .get(MainViewModel::class.java)
@@ -48,9 +49,12 @@ class MainActivity : AppCompatActivity() {
                 phone.text.toString().toInt(),
                 firstName.text.toString(),
                 lastName.text.toString(),
-                "male"//todo handle gender
+                gender
             )
             viewModel.addAddress(address)
+        }
+        genderField.setOnCheckedChangeListener { buttonView, isChecked ->
+            gender = if (isChecked) "female" else "male"
         }
         observeAddAddress()
     }
