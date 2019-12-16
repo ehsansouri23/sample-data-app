@@ -1,6 +1,8 @@
 package com.example.sampledataapp
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Point
 import android.os.Bundle
@@ -19,6 +21,8 @@ import kotlinx.android.synthetic.main.activity_maps.*
 
 
 const val LOCATION_PERMISSION = 110
+const val LAT = "lat"
+const val LONG = "long"
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -32,6 +36,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
         if (!permissionGranted())
             requestPermission()
+        configPin()
     }
 
     private fun permissionGranted() = ContextCompat.checkSelfPermission(
@@ -63,7 +68,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val position = mMap.projection.fromScreenLocation(
                 Point((pin.left + pin.width / 2), pin.bottom)
             )
-
+            val data = Intent().also {
+                it.putExtra(LAT, position.latitude)
+                it.putExtra(LONG, position.longitude)
+            }
+            setResult(Activity.RESULT_OK, data)
+            finish()
         }
     }
 
