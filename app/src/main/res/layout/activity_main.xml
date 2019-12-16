@@ -7,10 +7,19 @@
     android:background="@color/gray"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,24 +48,28 @@
                 android:background="@android:color/white">
 
                 <EditText
+                    android:id="@+id/firstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/first_name"
                     style="@style/Input"
                     android:drawableLeft="@drawable/ic_error_black_24dp"/>
                 <EditText
+                    android:id="@+id/lastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/last_name"
                     style="@style/Input"
                     android:drawableLeft="@drawable/ic_error_black_24dp"/>
                 <EditText
+                    android:id="@+id/mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/phone_number"
                     style="@style/Input"
                     android:drawableLeft="@drawable/ic_error_black_24dp"/>
                 <EditText
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/home_number"
@@ -86,6 +99,10 @@
                     style="@style/Input"
                     android:drawableLeft="@drawable/ic_error_black_24dp"/>
 
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -93,7 +110,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_s"
